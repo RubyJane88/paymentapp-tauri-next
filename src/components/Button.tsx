@@ -1,3 +1,4 @@
+import React from "react";
 
 type ButtonProps = {
   children: React.ReactNode;
@@ -15,13 +16,13 @@ export default function Button({ color = 'default', className, disabled, ...rest
 
 switch (color) {
   case 'default': {
-        className = `${className} bg-gray-500 hover:bg-gray-600 text-white ${disabled ? 'opacity-50 cursor-not-allowed' : 'text-gray-500'}`;
+        className = `${className} text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" ${disabled ? 'opacity-50 cursor-not-allowed' : 'text-gray-500'}`;
     }break;
   case 'primary': {
-        className = `${className} bg-blue-500 hover:bg-blue-600 text-white ${disabled ? 'opacity-50 cursor-not-allowed' : 'text-blue-500'}`;
+        className = `${className} focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900 ${disabled ? 'opacity-50 cursor-not-allowed' : 'text-blue-500'}`;
   }break;
   case 'secondary': {
-        className = `${className} bg-green-500 hover:bg-green-600 text-white ${disabled ? 'opacity-50 cursor-not-allowed' : 'text-green-500'}`;
+        className = `${className} focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800 ${disabled ? 'opacity-50 cursor-not-allowed' : 'text-green-500'}`;
   }break;
 }
 
