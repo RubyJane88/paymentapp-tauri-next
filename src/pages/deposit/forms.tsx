@@ -1,10 +1,18 @@
 import { useForm } from "react-hook-form";
+import Button from "../../components/Button";
+import {yupResolver} from "@hookform/resolvers/yup";
+import * as yup from "yup";
 
 type Props = {
   save: (values: any) => Promise<void>;
 };
 
 export default function Forms({ save }: Props) {
+  const schema = yup.object().shape({
+    firstName: yup.string().required().max(50),
+    lastName: yup.string().required().max(50),
+    email: yup.string().required().email(),
+  });
   const {
     register,
     handleSubmit,
@@ -12,11 +20,18 @@ export default function Forms({ save }: Props) {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    fetch("/api/account", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    }).then((res) => res.json())
+      .then((result) => {
+        console.log("result", result);
+    });
   };
 
   return (
-    <form action="/api/account" method="post" onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div>
         <label htmlFor="first_name" />
         <input
@@ -51,7 +66,7 @@ export default function Forms({ save }: Props) {
         />
         {errors.email && <p>Email is required</p>}
       </div>
-      <button type="submit">Submit</button>
+      <Button type="submit" color="secondary">Send</Button>
     </form>
   );
 }

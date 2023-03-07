@@ -4,7 +4,6 @@ import Forms from "./forms";
 
 export async function getServerSideProps(context) {
   const account = await prisma.account.findMany();
-  console.log("account", context);
   return {
     props: { account: JSON.parse(JSON.stringify(account)) },
   };
