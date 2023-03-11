@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "dev": "next dev -p 1420",
+    "dev": "next dev -p 1421",
     "build": "next build && next export -o dist",
     "tauri": "tauri"
   },
@@ -16,6 +16,9 @@
     "@types/react-router-dom": "^5.3.3",
     "autoprefixer": "^10.4.13",
     "axios": "^1.3.4",
+    "daisyui": "^2.51.3",
+    "flowbite": "^1.6.3",
+    "flowbite-react": "^0.4.1",
     "next": "^13.0.0",
     "postcss": "^8.4.21",
     "prettier": "^2.8.4",

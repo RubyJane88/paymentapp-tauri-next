@@ -1,23 +1,31 @@
 import React from "react";
 import { useRouter } from "next/router";
+import { Navbar } from "flowbite-react";
 
 export default function HomePage() {
-  const handleOnDeposit = () => {
-    router.push("/deposit");
+  const handleOnAccount = () => {
+    router.push("/account");
   };
 
-  const handleOnWithdraw = () => {
-    router.push("/withdrawal");
+  const handleOnTransaction = () => {
+    router.push("/transaction");
+  };
+
+  const handleOnRegister = () => {
+    router.push("/register");
   };
 
   const router = useRouter();
   return (
-    <div className="container">
-      <h2>My Bank Account</h2>
-      <div>
-        <button onClick={handleOnDeposit}>Deposit here</button>
-        <button onClick={handleOnWithdraw}>Withdraw here</button>
-      </div>
-    </div>
+    <Navbar fluid={true} rounded={true}>
+      <h2>My Bank</h2>
+      <Navbar.Toggle />
+      <Navbar.Collapse>
+        <button onClick={handleOnAccount}>Account Users</button>
+        <button onClick={handleOnTransaction}>Transactions</button>
+        <button onClick={handleOnRegister}>Register | Sign Up</button>
+      </Navbar.Collapse>
+      <div></div>
+    </Navbar>
   );
 }

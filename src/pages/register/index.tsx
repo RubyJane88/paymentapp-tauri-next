@@ -16,7 +16,7 @@ type Props = {
 export default function DepositPage({ account }: Props) {
   const handleSubmit = async (values) => {
     console.log("values", values);
-    const res = await fetch("/api/account", {
+    const res = await fetch("/api/accounts-api", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
@@ -27,7 +27,7 @@ export default function DepositPage({ account }: Props) {
 
   return (
     <div className="container">
-      <h1>My Deposit Account</h1>
+      <h1 className="my-6">Register An Account</h1>
       <Forms save={handleSubmit} />
     </div>
   );
