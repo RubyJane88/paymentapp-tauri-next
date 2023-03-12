@@ -13,7 +13,7 @@ type Props = {
   account: any[];
 };
 
-export default function DepositPage({ account }: Props) {
+export default function DepositPage({}: Props) {
   const handleSubmit = async (values) => {
     console.log("values", values);
     const res = await fetch("/api/accounts-api", {
